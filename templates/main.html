@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QALA~Viewing Room</title>
+  <link rel="icon" type="image/png" href="{% static 'images/Screenshot 2025-02-14 221343.png' %}" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      color: #000;
+    }
+
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .title {
+      font-size: 64px;
+      font-weight: bold;
+      margin: 0;
+      letter-spacing: 10px;
+    }
+
+    .dot-menu {
+      z-index: 20;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .sidebar {
+      position: fixed;
+      left: -250px;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #00000076;
+      color: #fff;
+      transition: left 0.3s ease;
+      padding-top: 50px;
+      z-index: 10;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar ul a {
+      padding: 15px;
+      text-align: center;
+      font-size: 24px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    /* Viewing Room Label */
+    .viewing-room-label {
+      text-align: center;
+      color: #000;
+      font-size: 36px;
+      font-family: 'Playfair Display', serif;
+      margin: 60px 0 40px;
+    }
+
+    /* Pinterest-Style Gallery */
+    .gallery {
+      column-count: 3;
+      column-gap: 20px;
+      padding: 0 20px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
+  </style>
+  <script>
+    function toggleSidebar() {
+      var sidebar = document.getElementById('sidebar');
+      if (sidebar.style.left === '0px') {
+        sidebar.style.left = '-250px';
+      } else {
+        sidebar.style.left = '0px';
+      }
+    }
+    function openModal(src) {
+      var modal = document.getElementById('modal');
+      var modalImg = document.getElementById('modal-img');
+      modal.style.display = 'flex';
+      modalImg.src = src;
+    }
+    function closeModal() {
+      var modal = document.getElementById('modal');
+      modal.style.display = 'none';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="title">QALA</div>
+  </header>
+  <div class="dot-menu" onclick="toggleSidebar()">⋮</div>
+  <div class="sidebar" id="sidebar" onclick="toggleSidebar()">
+    <ul>
+      <a>Viewing Room</a>
+      <a>Contact</a>
+      <a>Artist</a>
+      <a href="{% url 'exhibition' %}">Exhibitions</a>
+    </ul>
+  </div>
+
+  <!-- Centered Viewing Room Label -->
+  <div class="viewing-room-label">Viewing Room</div>
+
+  <!-- Gallery Section -->
+  <section class="gallery">
+    <img src="{% static 'images/art1.jpg' %}" alt="Art 1" onclick="openModal(this.src)">
+    <img src="{% static 'images/art2.jpg' %}" alt="Art 2" onclick="openModal(this.src)">
+    <img src="{% static 'images/art3.jpg' %}" alt="Art 3" onclick="openModal(this.src)">
+    <img src="{% static 'images/art4.jpg' %}" alt="Art 4" onclick="openModal(this.src)">
+    <img src="{% static 'images/art5.jpg' %}" alt="Art 5" onclick="openModal(this.src)">
+    <img src="{% static 'images/art6.jpg' %}" alt="Art 6" onclick="openModal(this.src)">
+    <img src="{% static 'images/art7.jpg' %}" alt="Art 7" onclick="openModal(this.src)">
+    <img src="{% static 'images/art8.jpg' %}" alt="Art 8" onclick="openModal(this.src)">
+    <img src="{% static 'images/art9.jpg' %}" alt="Art 9" onclick="openModal(this.src)">
+    <img src="{% static 'images/art10.jpg' %}" alt="Art 10" onclick="openModal(this.src)">
+    <img src="{% static 'images/art11.jpg' %}" alt="Art 11" onclick="openModal(this.src)">
+    <img src="{% static 'images/art12.jpg' %}" alt="Art 12" onclick="openModal(this.src)">
+    <img src="{% static 'images/art13.jpg' %}" alt="Art 13" onclick="openModal(this.src)">
+    <img src="{% static 'images/art14.jpg' %}" alt="Art 14" onclick="openModal(this.src)">
+    <img src="{% static 'images/art15.jpg' %}" alt="Art 15" onclick="openModal(this.src)">
+    <img src="{% static 'images/art16.jpg' %}" alt="Art 16" onclick="openModal(this.src)">
+    <img src="{% static 'images/art17.jpg' %}" alt="Art 17" onclick="openModal(this.src)">
+    <img src="{% static 'images/art18.jpg' %}" alt="Art 18" onclick="openModal(this.src)">
+    <img src="{% static 'images/art19.jpg' %}" alt="Art 19" onclick="openModal(this.src)">
+    <img src="{% static 'images/art20.jpg' %}" alt="Art 20" onclick="openModal(this.src)">
+    <img src="{% static 'images/art21.jpg' %}" alt="Art 21" onclick="openModal(this.src)">
+    <img src="{% static 'images/art22.jpg' %}" alt="Art 22" onclick="openModal(this.src)">
+    <img src="{% static 'images/art23.jpg' %}" alt="Art 23" onclick="openModal(this.src)">
+    <img src="{% static 'images/art24.jpg' %}" alt="Art 24" onclick="openModal(this.src)">
+    <img src="{% static 'images/art25.jpg' %}" alt="Art 25" onclick="openModal(this.src)">
+  </section>
+  <div class="modal" id="modal" onclick="closeModal()">
+    <img id="modal-img" src="" alt="Expanded Art">
+  </div>
+</body>
+</html>
